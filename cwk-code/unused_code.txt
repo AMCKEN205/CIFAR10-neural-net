@@ -1,0 +1,104 @@
+    # def to_json(self):
+    #     """ Convert the image object to JSON for storage in mongo DB"""
+        
+    #     obj_dict = { 
+    #         "__class__": self.__class__.__name__,
+    #         "__module__": self.__module__
+    #     }
+
+    #     obj_dict.update(self.__dict__)
+
+    #     return json.dumps(obj_dict)
+    
+    # def numpy_to_json(json.JSONEncoder):
+
+
+    # def img_from_json(self, img_dict):
+    #     """ Generate an image object from given JSON """
+    #     if "__class__" in img_dict:
+            
+    #         # get metadata 
+    #         class_name = img_dict.pop("__class__")
+
+    #         module_name = img_dict.pop("__module__")
+
+    #         # module name not known at runtime
+    #         module = __import__(module_name)
+    #         _class = getattr(module, class_name)
+
+    #         # dictionary unpack to create class instance
+    #         img_obj = _class(**img_dict)
+    #     else:
+    #         raise Exception("Given JSON does not represent an Image class instance.")
+
+    #     return img_obj
+
+
+# def store_data(dataset_data : numpy_ar, dataset_labels : numpy_ar, \
+#     db_label : str):
+#     """ Store dataset data using provided database label """
+    
+#     # Get the data store filepaths
+#     script_file = __file__
+#     script_run_dir = dirname(realpath(script_file))
+    
+#     dataset_filepath = "{}/../cifar10-dataset-source-images".format(script_run_dir)
+
+#     train_filepath = "{}/train-images".format(dataset_filepath)
+#     validation_filepath = "{}/validation-images".format(dataset_filepath)
+#     test_filepath = "{}/test-images".format(dataset_filepath)
+
+#     filepaths = [train_filepath, validation_filepath, test_filepath]
+#     # labels tuples entry index position 
+#     labels_col_index = 0
+
+#     # index of concrete label value within labels list tuples
+#     labels_col_tuples_label_index = 0
+
+#     # index of concrete image matix values.
+#     image_matrix_pos = 0
+
+#     # If we've already initalised the image data, we'll just produce a
+#     # bunch of duplicate data.
+    
+#     for filepath in filepaths:
+#         matrices_filepath = "{}/image_matrices".format(filepath)
+#         img_label_npars_filepath = "{}/image_label_matrices".format(filepath)
+#         image_labels = "{}/image_labels".format(filepath)
+
+#         store_paths = [matrices_filepath, img_label_npars_filepath, image_labels]
+        
+#         # will produce duplicate data if data already exists.
+#         no_data_present = False
+#         for store_path in store_paths:
+#             files_listed = listdir(store_path)
+#             no_data_present = len(files_listed) == 0
+#             if no_data_present == False:
+#                 break
+
+#         if no_data_present:
+#             for img_index in range(len(dataset_data)):
+#                 img = dataset_data[image_matrix_pos][img_index]
+#                 img_label_numpy_ar = dataset_labels[labels_col_index][img_index]
+#                 img_label = img_label_numpy_ar[labels_col_tuples_label_index]
+                
+
+#                 img_matrix_file = "img_{}_matrix.txt".format(str(img_index))
+#                 img_matrix_filepath = "{}/{}".format(matrices_filepath,img_matrix_file)
+
+#                 img_label_numpy_ar_file = "img_{}_label_numpy_array.txt"
+#                 img_label_npar_filepath = "{}/{}".format(img,img_label_numpy_ar_file)
+
+#                 img_label_file = "img_{}_label.txt"
+#                 img_label_npar_filepath = "{}/{}".format(img,img_matrix_file)
+
+#                 # store the image pixel matrix/ numpy arrays
+#                 numpy_save_txt(img_matrix_filepath, img)
+
+#                 # store the image label numpy arrays
+#                 numpy_save_txt(img_label_npar_filepath, img_label_numpy_ar)
+
+#                 # store the raw image labels
+#         else:
+#             print("some image data is already populated, delete this data and try again.")
+        

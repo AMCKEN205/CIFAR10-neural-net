@@ -1,0 +1,11 @@
+,class,occurances,percent of dataset
+0,airplane,3986,0.09965
+1,automobile,3986,0.09965
+2,bird,4048,0.1012
+3,cat,3984,0.0996
+4,deer,4003,0.100075
+5,dog,3975,0.099375
+6,frog,4020,0.1005
+7,horse,4023,0.100575
+8,ship,3997,0.099925
+9,truck,3978,0.09945
